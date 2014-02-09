@@ -15,19 +15,22 @@ var Divider = React.createClass({
 
         e.preventDefault();
 
+        // calculate the position of the cursor relative to the container
         var element = this.getDOMNode();
         var parentBounds = element.parentNode.getBoundingClientRect();
         var parentWidth = parentBounds.right - parentBounds.left;
         var percentAcrossContainer = (e.pageX - parentBounds.left) / parentWidth;
 
+        // determine the offset of our current element relative to the parent
         var affected = element.previousSibling;
         var affectedLeft = affected.getBoundingClientRect().left;
         var affectedOffsetPercent = affectedLeft / parentWidth;
 
-        console.log(affectedOffsetPercent);
+        // calculate the percent width
+        var percent = percentAcrossContainer - affectedOffsetPercent;
 
-        // calculate the percent, and set a 10% minimum
-        var percent = Math.max(percentAcrossContainer - affectedOffsetPercent, 0.10);
+        //set a 10% minimum
+        percent = Math.max(percent, 0.10);
 
         // and a 90% max
         percent = Math.min(percent, 0.9);
@@ -62,10 +65,6 @@ var Split = React.createClass({
     getInitialState: function() {
         return {};
     },
-    componentDidMount: function() {
-
-    },
-
     render: function() {
         var insertDivider = function(nodes, node, index, array) {
             if (index === array.length - 1) {
