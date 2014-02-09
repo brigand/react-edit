@@ -1,13 +1,18 @@
 /** @jsx React.DOM */
+
+var test = require("./testeditor.jsx");
+
 var Application = React.createClass({
     getInitialState: function() {
         return {};
     },
     componentDidMount: function() {
+
     },
+
     render: function() {
         return (
-            <h1>Hello World</h1>
+            <test />
         );
     }
 });

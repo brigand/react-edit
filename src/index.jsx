@@ -1,10 +1,9 @@
 /** @jsx React.DOM */
-$(function() {
-    var Application = require('./jsx/application.jsx');
+var Application = require('./jsx/application.jsx');
 
-    React.renderComponent(
-        <Application />,
-        document.getElementById('application')
-    );
+var app = window.app = <Application />;
 
-});
+React.renderComponent(
+    app,
+    document.getElementById('application')
+);

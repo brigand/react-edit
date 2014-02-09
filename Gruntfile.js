@@ -17,6 +17,9 @@ module.exports = function (grunt) {
         browserify: {
             options: {
                 transform: ['reactify'],
+                aliasMappings: [
+                    {src: "./src/jsx/common/**/*.jsx", dest: "common"}
+                ]
             },
             dev: {
                 options: {
@@ -56,20 +59,20 @@ module.exports = function (grunt) {
             dev: {
                 files: [
                     {src: ['bower_components/director/build/director.min.js'], dest: './development/js/vendor/director.min.js'},
-                    {src: ['bower_components/react/react.min.js'], dest: './development/js/vendor/react.min.js'},
+                    {src: ['bower_components/react/react-with-addons.js'], dest: './development/js/vendor/react.min.js'},
                     {src: ['bower_components/normalize-css/normalize.css'], dest: './development/css/vendor/normalize.css'},
-                    {src: ['bower_components/codemirror/lib/codemirror.js'], dest: './development/js/vendor/codemirror.js'},
-                    {src: ['bower_components/codemirror/lib/codemirror.css'], dest: './development/css/vendor/codemirror.css'},
+                    {src: ['lib/codemirror-compressed.js'], dest: './development/js/vendor/codemirror.js'},
+                    {src: ['lib/codemirror.css'], dest: './development/css/vendor/codemirror.css'},
                     {src: ['bower_components/foundation/css/foundation.min.css'], dest: './development/css/vendor/foundation.css'}
                 ]
             },
             dist: {
                 files: [
                     {src: ['bower_components/director/build/director.min.js'], dest: './dist/js/vendor/director.min.js'},
-                    {src: ['bower_components/react/react.min.js'], dest: './dist/js/vendor/react.min.js'},
+                    {src: ['bower_components/react/react-with-addons.min.js'], dest: './dist/js/vendor/react.min.js'},
                     {src: ['bower_components/normalize-css/normalize.css'], dest: './dist/css/vendor/normalize.css'},
-                    {src: ['bower_components/codemirror/lib/codemirror.js'], dest: './dist/js/vendor/codemirror.js'},
-                    {src: ['bower_components/codemirror/lib/codemirror.css'], dest: './dist/css/vendor/codemirror.css'},
+                    {src: ['lib/codemirror-compressed.js'], dest: './dist/js/vendor/codemirror.js'},
+                    {src: ['lib/codemirror.css'], dest: './dist/css/vendor/codemirror.css'},
                     {src: ['bower_components/foundation/css/foundation.min.css'], dest: './development/css/vendor/foundation.css'}
                 ]
             }
