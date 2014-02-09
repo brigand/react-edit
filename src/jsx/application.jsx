@@ -1,6 +1,7 @@
 /** @jsx React.DOM */
 
-var test = require("./testeditor.jsx");
+var Split = require("./common/split.jsx");
+var Accordion = require("./common/accordion.jsx");
 
 var Application = React.createClass({
     getInitialState: function() {
@@ -12,7 +13,23 @@ var Application = React.createClass({
 
     render: function() {
         return (
-            <test />
+            <Split>
+                <div>
+                    <Accordion title="Foo">
+                        bar
+                    </Accordion>
+
+                    <Accordion title="Foo">
+                        bar
+                    </Accordion>
+                    
+                    <Accordion title="Foo">
+                        bar
+                    </Accordion>
+                </div>
+                <div />
+                <div />
+            </Split>
         );
     }
 });

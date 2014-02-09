@@ -63,7 +63,7 @@ module.exports = function (grunt) {
                     {src: ['bower_components/normalize-css/normalize.css'], dest: './development/css/vendor/normalize.css'},
                     {src: ['lib/codemirror-compressed.js'], dest: './development/js/vendor/codemirror.js'},
                     {src: ['lib/codemirror.css'], dest: './development/css/vendor/codemirror.css'},
-                    {src: ['bower_components/foundation/css/foundation.min.css'], dest: './development/css/vendor/foundation.css'}
+                    {src: ['lib/foundation.css'], dest: './development/css/vendor/foundation.css'}
                 ]
             },
             dist: {
@@ -73,7 +73,7 @@ module.exports = function (grunt) {
                     {src: ['bower_components/normalize-css/normalize.css'], dest: './dist/css/vendor/normalize.css'},
                     {src: ['lib/codemirror-compressed.js'], dest: './dist/js/vendor/codemirror.js'},
                     {src: ['lib/codemirror.css'], dest: './dist/css/vendor/codemirror.css'},
-                    {src: ['bower_components/foundation/css/foundation.min.css'], dest: './development/css/vendor/foundation.css'}
+                    {src: ['lib/foundation.min.css'], dest: './development/css/vendor/foundation.css'}
                 ]
             }
         },
