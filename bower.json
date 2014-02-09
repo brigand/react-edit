@@ -1,0 +1,22 @@
+{
+  "name": "\"name\": \"react-edit\",",
+  "version": "0.0.1",
+  "description": "Opinionated starting point boilerplate for buiding amazing things with ReactJS",
+  "main": "index.js",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "react": "~0.8.0",
+    "director": "~1.2.2",
+    "normalize-css": "~2.1.3",
+    "codemirror": "~3.21.0",
+    "foundation": "~5.1.1"
+  }
+}
