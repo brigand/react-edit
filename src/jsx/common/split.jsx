@@ -6,6 +6,7 @@ var Divider = React.createClass({
     },
     dragStart: function(e){
         this.isDragging = true;
+        e.preventDefault();
     },
     dragUpdate: function(e){
         if (!this.isDragging) {

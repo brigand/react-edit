@@ -1,9 +1,12 @@
+@require 'mixins/flexbox'
+
 .split-component
-    display: flex
+    flexbox()
     height: 100%
     width: 100%
 
     & > *:last-of-type
+        -webkit-flex: 1
         flex: 1
 
     .divider
