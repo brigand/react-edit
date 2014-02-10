@@ -1,7 +1,7 @@
 /** @jsx React.DOM */
 
 var Split = require("./common/split.jsx");
-var Accordion = require("./common/accordion.jsx");
+var Menu = require("./menu/menu.jsx");
 
 var Application = React.createClass({
     getInitialState: function() {
@@ -14,19 +14,7 @@ var Application = React.createClass({
     render: function() {
         return (
             <Split>
-                <div>
-                    <Accordion title="Foo">
-                        bar
-                    </Accordion>
-
-                    <Accordion title="Foo">
-                        bar
-                    </Accordion>
-                    
-                    <Accordion title="Foo">
-                        bar
-                    </Accordion>
-                </div>
+                <Menu data={this.props.data} />
                 <div />
                 <div />
             </Split>

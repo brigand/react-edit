@@ -1,0 +1,45 @@
+.re-menu
+    .accordion-component
+        a: 1
+
+    .components
+        font-size: 1.3em
+
+        button.success
+            margin-left: 20%
+            margin-top: 1em
+            width: 60%
+
+            &:hover
+                background: darker(#5da423, 20%)
+
+        .component-item
+            cursor: pointer
+            transition: color 0.2s ease-in
+            &:hover
+                color: #e07
+
+            .indent
+                display: inline-block
+                width: 1em
+                height 0.1em
+                background: rgba(255, 255, 255, 0.5)
+                margin: 0
+                padding: 0
+                position: relative
+
+                &:first-child
+                    margin-left: 0.2em
+
+                &:first-child:before
+                    width: 0.1em
+                    height 1em
+                    background: rgba(255, 255, 255, 0.5)
+                    display: inline-block
+                    content: ''
+                    position: absolute
+                    top: -1em
+                    left: 0
+            .spacer
+                height: 1em
+

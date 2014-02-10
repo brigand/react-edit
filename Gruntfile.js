@@ -58,22 +58,22 @@ module.exports = function (grunt) {
         copy: {
             dev: {
                 files: [
-                    {src: ['bower_components/director/build/director.min.js'], dest: './development/js/vendor/director.min.js'},
                     {src: ['bower_components/react/react-with-addons.js'], dest: './development/js/vendor/react.min.js'},
                     {src: ['bower_components/normalize-css/normalize.css'], dest: './development/css/vendor/normalize.css'},
                     {src: ['lib/codemirror-compressed.js'], dest: './development/js/vendor/codemirror.js'},
                     {src: ['lib/codemirror.css'], dest: './development/css/vendor/codemirror.css'},
-                    {src: ['lib/foundation.css'], dest: './development/css/vendor/foundation.css'}
+                    {src: ['lib/foundation.css'], dest: './development/css/vendor/foundation.css'},
+                    {src: ['lib/cortex.js'], dest: './development/js/vendor/cortex.js'}
                 ]
             },
             dist: {
                 files: [
-                    {src: ['bower_components/director/build/director.min.js'], dest: './dist/js/vendor/director.min.js'},
                     {src: ['bower_components/react/react-with-addons.min.js'], dest: './dist/js/vendor/react.min.js'},
                     {src: ['bower_components/normalize-css/normalize.css'], dest: './dist/css/vendor/normalize.css'},
                     {src: ['lib/codemirror-compressed.js'], dest: './dist/js/vendor/codemirror.js'},
                     {src: ['lib/codemirror.css'], dest: './dist/css/vendor/codemirror.css'},
-                    {src: ['lib/foundation.min.css'], dest: './development/css/vendor/foundation.css'}
+                    {src: ['lib/foundation.min.css'], dest: './dist/css/vendor/foundation.css'},
+                    {src: ['lib/cortex.min.js'], dest: './dist/js/vendor/cortex.js'}
                 ]
             }
         },
