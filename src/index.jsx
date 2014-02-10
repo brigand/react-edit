@@ -1,14 +1,14 @@
 /** @jsx React.DOM */
 var Application = require('./jsx/application.jsx');
 var Parse = require("./api/parse");
+var getDefaultMethods = require("./api/getDefaultMethods");
+
 
 var defaultData = {
     components: [
         {
             "name": "App",
-            "methods": {
-                render: "function(){}"
-            },
+            "methods": getDefaultMethods(),
             "depends": []
         }
     ],

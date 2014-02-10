@@ -1,4 +1,3 @@
-
 function ComponentItemList(props){
     return props.components.map(function(it){ return it.getValue().name })
         .sort()

@@ -7,7 +7,10 @@ function generate(data){
         var javascript = JSXTransformer.transform(jsx).code;    
     }
     catch (e) {
-        return "";
+        return "<pre style='color: #702'>" 
+            + "<h3>Error processing the files</h3>"
+            + JSON.stringify(e, null, 4) 
+            + "</pre>";
     }
 
     var html = insert(templates.html, {
@@ -21,9 +24,8 @@ module.exports = generate;
 // take a module and 
 function processModule(data){
     var methods = []; 
-    objectForEach(data.methods, function(name, code){
-        console.log(name, code);
-        methods.push(wrap.method(name, code));
+    objectForEach(data.methods, function(name, method){
+        methods.push(wrap.method(name, method));
     });
 
     var cc = wrap.createClass(data.name, methods.join(",\n\n"));
@@ -63,15 +65,13 @@ var wrap = {
             code: code
         });
     },
-    method: function(name, code){
-        var lines = code.split("\n");
-        var first = lines[0];
-        var others = indent(1, code);
+    method: function(name, method){
+        var code = indent(1, method.code);
 
-        return insert("$name$: $code$", {
+        return insert("$name$: function($args$){ \n$code$\n}", {
             name: name,
-            code: others.trim(),
-            others:others.trim()
+            code: code.trim(),
+            args: method.args
         })
     }
 }

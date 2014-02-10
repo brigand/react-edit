@@ -14,14 +14,22 @@ var Code = React.createClass({
         component.get("methods").forEach(function(key, value){
             var id = component.get("name").getValue() + "-" + key;
             console.log(id);
+
+            var code = value.get("code");
+            var args = value.get("args");
+            var updateArgs = function(e){
+                args.set(e.target.value)
+            }
+
             items.push( 
-                <Accordion key={id} title={key} defaultOpen={true}>
-                    <CodeMirror code={value.getValue()} onChange={value.set.bind(value)} />
+                <Accordion key={id} title={key} defaultOpen={value.get("defaultOpen").getValue()}>
+                    <input value={args.getValue()} onChange={updateArgs} placeholder="...args" className="args" />
+                    <CodeMirror code={code.getValue()} onChange={code.set.bind(code)} />
                 </Accordion>
             );
         });
 
-        return <div>{items}</div>
+        return <div className="re-code">{items}</div>
     }
 });
 

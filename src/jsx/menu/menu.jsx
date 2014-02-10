@@ -4,6 +4,7 @@ var Accordion = require("../common/accordion.jsx");
 var ComponentItemList = require("./component-list.jsx");
 var ComponentSettings = require("./component-settings.jsx");
 var Parse = require("../../api/parse");
+var getDefaultMethods = require("../../api/getDefaultMethods");
 
 var Menu = React.createClass({
     render: function(){
@@ -43,7 +44,7 @@ var Menu = React.createClass({
         var obj = {
             name: name,
             depends: [],
-            methods: {render: "function(){\n    return (<div />);\n}\n"}
+            methods: getDefaultMethods()
         };
 
         components.push(obj);
