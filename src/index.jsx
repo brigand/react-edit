@@ -10,6 +10,17 @@ var defaultData = {
             "name": "App",
             "methods": getDefaultMethods(),
             "depends": []
+        },
+        {
+            "name": "Common",
+            "methods": {
+                "_": {
+                    code: "// put reusable code in \n// submodules of Common",
+                    args: "",
+                    defaultOpen: true
+                }
+            },
+            "depends": []
         }
     ],
     settings: {
