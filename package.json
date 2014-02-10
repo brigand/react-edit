@@ -14,7 +14,8 @@
     "baseline"
   ],
   "dependencies": {
-    "react-tools": "~0.8.0"
+    "react-tools": "~0.8.0",
+    "brfs": "~0.1.0"
   },
   "devDependencies": {
     "grunt": "~0.4.2",

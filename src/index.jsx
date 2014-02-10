@@ -3,21 +3,45 @@ var Application = require('./jsx/application.jsx');
 
 
 var defaultData = {
-    components: {
-        "FooBar": {},
-        "Foo.Bar.Quux.Baz": {},
-        "Foo.Bar": {},
-        "Foo.Bar.Baz": {},
-        "Foo": {},
-        "Foo.Baz": {}
-    },
+    components: [
+        {
+            "name": "FooBar",
+            "methods": {},
+            "depends": []
+        },
+        {
+            "name": "Foo.Bar.Quux.Baz",
+            "methods": {},
+            "depends": []
+        },
+        {
+            "name": "Foo.Bar",
+            "methods": {},
+            "depends": []
+        },
+        {
+            "name": "Foo.Bar.Baz",
+            "methods": {},
+            "depends": []
+        },
+        {
+            "name": "Foo",
+            "methods": {},
+            "depends": []
+        },
+        {
+            "name": "Foo.Baz",
+            "methods": {},
+            "depends": []
+        }
+    ],
     settings: {
 
     },
     activeComponent: ""
 }
 
-var cortex = new Cortex(defaultData, function(updatedData) {
+var cortex = new Cortex(defaultData, function(updatedData, a,c) {
   app.setProps({data: updatedData});
 });
 

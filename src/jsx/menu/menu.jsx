@@ -1,13 +1,15 @@
 /** @jsx React.DOM */
 
 var Accordion = require("../common/accordion.jsx");
+var ComponentItemList = require("./component-list.jsx");
+var ComponentSettings = require("./component-settings.jsx");
 
 var Menu = React.createClass({
     render: function(){
         var data = this.props.data;
         var active = data.get("activeComponent"), activeValue = active.getValue();
         var components = data.get("components");
-        console.log(activeValue)
+
         return(
             <div className="re-menu">
                 <Accordion title="Settings" defaultOpen={true}>
@@ -15,59 +17,50 @@ var Menu = React.createClass({
                 </Accordion>
 
                 <Accordion title="Components" className="components" defaultOpen={true}>
-                    <ComponentItemList keys={components.keys()} active={active} />
-                    <button className="success">new</button>
+                    <ComponentItemList components={components} active={active} />
+                    <button className="success" onClick={this.addComponent}>new</button>
                 </Accordion>
                 { activeValue && 
-                    <Accordion title={active.getValue()}>
-                        {JSON.stringify(components.get(activeValue).getValue())}
+                    <Accordion title={activeValue} defaultOpen={true}>
+                        <ComponentSettings component={this.getActiveComponent()} active={active} />
                     </Accordion>}
             </div>);
+    },
+    addComponent: function(){
+        var data = this.props.data;
+        var active = data.get("activeComponent"), activeValue = active.getValue();
+        var components = data.get("components");
+
+        var rwords = "Ain,Blar,Cin,Das,Eog,Fiz,Guj,Hab,Ien,Jia,Kop,Lun,Mel,Ner,Omp,Pik,Qub,Rel,Sug,Ter,Und,Ven,Wex,Xul,Yat,Zep".split(",");
+        var nameSuffix = "";
+        while(nameSuffix.length < 9) {
+            nameSuffix += rwords[Math.floor(Math.random() * rwords.length)];
+        }
+
+        var name = activeValue ? activeValue + "." + nameSuffix : nameSuffix;
+
+        var obj = {
+            name: name,
+            depends: [],
+            methods: {render: "function(){\n    return (<div />);\n}\n"}
+        };
+
+        components.push(obj);
+        active.set(name);
+    },
+    getActiveComponent: function(){
+        var nameIs = function(name){
+            return function(x){
+                return name === (x.getValue ? x.getValue().name : x.name);
+            }
+        };
+
+        var data = this.props.data;
+        var active = data.get("activeComponent"), activeValue = active.getValue();
+        var components = data.get("components");
+        return components.find(nameIs(activeValue));
     }
 });
 
-function ComponentItemList(props){
-    return props.keys.map(function(it){ return it })
-        .sort(function(a, b){
-            var ap = a.split("."), bp = b.split("."), len = Math.min(ap.length, bp.length);
-
-            for (var i=0; i<len; i++){
-                var ai = ap[i], bi = bp[i];
-
-                if (ai < bi) return -1;
-                if (bi < ai) return 1;
-            }
-
-            if (ap.length > bp.length) {
-                return 1;
-            }
-            if (bp.length < ap.length) {
-                return -1;
-            }
-        })
-        .map(function(key){
-            var setFocused = function(){
-                props.active.set(key);
-            };
-            return <ComponentItem name={key} onClick={setFocused} />
-        });
-}
-
-function ComponentItem(props){
-    var parts = props.name.split(".");
-    var last = parts[parts.length - 1];
-    var indents = [];
-
-    while (indents.length < parts.length - 1) {
-        indents.push(<span className="indent"></span>);
-    }
-
-    return (
-        <div key={props.name} className="component-item" onClick={props.onClick}>
-            {parts.length === 1 && <div className="spacer" />} 
-            {indents} {last}
-        </div>
-    );
-}
 
 module.exports = Menu;
