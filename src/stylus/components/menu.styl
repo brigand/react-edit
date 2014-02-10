@@ -51,12 +51,21 @@
             .spacer
                 height: 1em
 
-    .depend
+    .depend, .delete
         clear: both
 
+    .x
+        float: right
+        cursor: pointer
+
+    .x, .delete
+        font-family: monospace
+        color: #e07
+
+    .delete
         .x
-            float: right
-            font-family: monospace
-            color: #e07
-            cursor: pointer
+            display: none
+        &:hover .x
+            display: block
+
 

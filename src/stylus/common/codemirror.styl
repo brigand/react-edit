@@ -2,3 +2,21 @@
     overflow-x: auto
     overfloy-y: hidden
     height: auto
+
+.CodeMirror-hints
+    border: 1px solid #702
+    background: black
+    box-shadow: 0.3em 0.3em 1em rgba(0,0,0,1)
+
+    .CodeMirror-hint
+        color: rgba(255, 255, 255, 0.5)
+        transition: color 0.2s, background 0.2s
+
+    .CodeMirror-Tern-completion-fn:before
+        content: "F";
+        background: red;
+
+    .CodeMirror-hint-active
+        color: white;
+        box-shadow: 0 0 1em #f07
+        background: #410000
