@@ -3,13 +3,16 @@ function generate(data){
     var modules = data.components.map(processModule);
 
     var jsx = templates.jsxbanner + "\n" + modules.join("\n\n");
-    var javascript = JSXTransformer.transform(jsx).code;    
+    try {
+        var javascript = JSXTransformer.transform(jsx).code;    
+    }
+    catch (e) {
+        return "";
+    }
 
     var html = insert(templates.html, {
         javascript: javascript
     });
-
-    console.log(html)
 
     return html;
 }

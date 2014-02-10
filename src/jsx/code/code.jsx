@@ -12,7 +12,8 @@ var Code = React.createClass({
         var items = [];
 
         component.get("methods").forEach(function(key, value){
-            var id = component.get("name").getValue + "-" + key;
+            var id = component.get("name").getValue() + "-" + key;
+            console.log(id);
             items.push( 
                 <Accordion key={id} title={key} defaultOpen={true}>
                     <CodeMirror code={value.getValue()} onChange={value.set.bind(value)} />
