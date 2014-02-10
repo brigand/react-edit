@@ -1,12 +1,12 @@
 var Accordion = require("../common/accordion.jsx");
 var CodeMirror = require("../common/CodeMirror.jsx");
-
+var Welcome = require("./welcome.jsx")
 
 var Code = React.createClass({
     render: function(){
         var component = this.props.component;
         if (!component) {
-            return (<div>Click on a component to start editing!</div>);
+            return (<Welcome />);
         }
 
         var items = [];

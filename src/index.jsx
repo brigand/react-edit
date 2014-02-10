@@ -14,7 +14,7 @@ var defaultData = {
         {
             "name": "Common",
             "methods": {
-                "_": {
+                "render": {
                     code: "// put reusable code in \n// submodules of Common",
                     args: "",
                     defaultOpen: true
