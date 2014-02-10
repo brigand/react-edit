@@ -3,7 +3,6 @@ var CodeMirror = require("../common/CodeMirror.jsx");
 
 
 var Code = React.createClass({
-    mixins: [require("../../util/CortexMixin")],
     render: function(){
         var component = this.props.component;
         if (!component) {
@@ -13,17 +12,13 @@ var Code = React.createClass({
         var items = [];
 
         component.get("methods").forEach(function(key, value){
+            var id = component.get("name").getValue + "-" + key;
             items.push( 
-                <Accordion key={key} title={key} defaultOpen={true}>
+                <Accordion key={id} title={key} defaultOpen={true}>
                     <CodeMirror code={value.getValue()} onChange={value.set.bind(value)} />
                 </Accordion>
             );
-        })
-/*
-        component.forEach(function(key, value){
-            console.log(k);
-            items.push( <div>{key}</div> );
-        })*/
+        });
 
         return <div>{items}</div>
     }

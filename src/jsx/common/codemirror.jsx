@@ -7,7 +7,8 @@ var CodeMirrorComponent = React.createClass({
         var opts = extend({
             mode: "javascript",
             lineNumbers: true,
-            theme: "ambiance"
+            theme: "ambiance",
+            viewportMargin: Infinity
         }, this.props.config || {});
 
         console.log(opts);
