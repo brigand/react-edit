@@ -5,33 +5,10 @@ var Application = require('./jsx/application.jsx');
 var defaultData = {
     components: [
         {
-            "name": "FooBar",
-            "methods": {},
-            "depends": []
-        },
-        {
-            "name": "Foo.Bar.Quux.Baz",
-            "methods": {},
-            "depends": []
-        },
-        {
-            "name": "Foo.Bar",
-            "methods": {},
-            "depends": []
-        },
-        {
-            "name": "Foo.Bar.Baz",
-            "methods": {},
-            "depends": []
-        },
-        {
-            "name": "Foo",
-            "methods": {},
-            "depends": []
-        },
-        {
-            "name": "Foo.Baz",
-            "methods": {},
+            "name": "App",
+            "methods": {
+                render: "function(){}"
+            },
             "depends": []
         }
     ],

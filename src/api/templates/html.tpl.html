@@ -10,7 +10,17 @@
   <script src="/js/vendor/react.min.js"></script>
   <script src="/js/vendor/cortex.js"></script>
   <script>
+ var dep={set:function(i,t){this._modules[i]=t,this._waiting[i]&&this._waiting[i].forEach(function(i){i()})},get:function(i,t){var n=i.length,e=[],l=this._modules,s=this._waiting,h=function(){0===n&&t.apply(null,e)};i.forEach(function(i,t){if(l[i])e[t]=l[i],n--,h();else{var o=s[i]=s[i]||[],u=o.length;o.push(function(){e[t]=l[i],n--,1===o.length?delete s[i]:o.splice(u,1),h()})}})},_modules:{},_waiting:{}}
+  </script>
+  <script>
 $javascript$
+
+dep.get(["App"], function(App){
+    React.renderComponent(
+        App(null),
+        document.getElementById('application')
+    );
+});
   </script>
 </body>
 </html>
