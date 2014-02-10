@@ -1,0 +1,11 @@
+/.sass-cache/
+
+/bower_components/
+
+/development/
+
+/dist/
+
+/node_modules/
+
+.DS_Store
