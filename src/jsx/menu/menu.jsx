@@ -3,6 +3,7 @@
 var Accordion = require("../common/accordion.jsx");
 var ComponentItemList = require("./component-list.jsx");
 var ComponentSettings = require("./component-settings.jsx");
+var Parse = require("../../api/parse");
 
 var Menu = React.createClass({
     render: function(){
@@ -13,7 +14,7 @@ var Menu = React.createClass({
         return(
             <div className="re-menu">
                 <Accordion title="Settings" defaultOpen={true}>
-                    bar
+                    <button onClick={Parse.save}>Save</button>
                 </Accordion>
 
                 <Accordion title="Components" className="components" defaultOpen={true}>
