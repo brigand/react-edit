@@ -33,7 +33,6 @@ function maybeLoadRemote(){
     if (window.location.hash.length === 7) {
         Parse.get(window.location.hash.slice(2))
             .then(function(snap){
-                console.log(snap);
                 var data = snap.get('data');
                 cortex.set(data);
             });

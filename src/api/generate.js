@@ -1,5 +1,4 @@
 function generate(data){
-    console.log(data);
     var modules = data.components.map(processModule);
 
     var jsx = templates.jsxbanner + "\n" + modules.join("\n\n");

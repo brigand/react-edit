@@ -13,7 +13,6 @@ var Code = React.createClass({
 
         component.get("methods").forEach(function(key, value){
             var id = component.get("name").getValue() + "-" + key;
-            console.log(id);
 
             var code = value.get("code");
             var args = value.get("args");

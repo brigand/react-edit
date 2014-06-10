@@ -11,7 +11,6 @@ var CodeMirrorComponent = React.createClass({
             viewportMargin: Infinity
         }, this.props.config || {});
 
-        console.log(opts);
         return opts;
     },
     updateCode: function(){
@@ -115,8 +114,7 @@ function bindTern(cm){
         var otherCallback = callback || function(){};
 
         // tack on our bind function to the callback
-        callback = (function(){ 
-            console.log("cb")
+        callback = (function(){
             otherCallback(); bind(); 
         });
     }
