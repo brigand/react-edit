@@ -24,9 +24,9 @@ var CodeMirrorComponent = React.createClass({
     },
 
     // standard lifecycle methods
-    componentDidMount: function(el) {
+    componentDidMount: function() {
         // bind CodeMirror
-        window.cm = this.cm = CM(el, this.getOptions());
+        this.cm = CM(this.getDOMNode(), this.getOptions());
         bindTern(this.cm);
         this.cm.on("change", this.codeChanged);
         this.updateCode();
